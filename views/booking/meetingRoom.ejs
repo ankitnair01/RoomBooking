@@ -1,0 +1,39 @@
+<!-- views/booking/meetingRoom.ejs -->
+<h2>Meeting Room Booking</h2>
+
+<% if (messages.success) { %>
+  <p class="success"><%= messages.success %></p>
+  <script>
+    alert('<%= messages.success %>');
+  </script>
+<% } %>
+<% if (messages.error) { %>
+  <p class="error"><%= messages.error %></p>
+  <script>
+    alert('<%= messages.error %>');
+  </script>
+<% } %>
+
+<form action="/booking/submitMeetingRoom" method="POST" id="meetingRoomForm">
+  <div>
+    <label for="employeeid">Employee ID:</label>
+    <input type="number" id="employeeid" name="employeeid" required>
+  </div>
+  <div>
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate">
+    <label for="startTime">Time:</label>
+    <input type="time" id="startTime" name="startTime">
+  </div>
+  <div>
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate">
+    <label for="endTime">Time:</label>
+    <input type="time" id="endTime" name="endTime">
+  </div>
+  <div>
+    <label for="meetingRoom">Preferred Room:</label>
+    <input type="text" id="meetingRoom" name="meetingRoom">
+  </div>
+  <input type="submit" value="Submit" class="glassmorphism-button shift-right">
+</form>

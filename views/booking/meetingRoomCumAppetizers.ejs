@@ -1,0 +1,89 @@
+<!-- views/booking/meetingRoomCumAppetizers.ejs -->
+<h2>Meeting Room Booking</h2>
+
+<% if (messages.success) { %>
+  <p class="success"><%= messages.success %></p>
+  <script>
+    alert('<%= messages.success %>');
+  </script>
+<% } %>
+<% if (messages.error) { %>
+  <p class="error"><%= messages.error %></p>
+  <script>
+    alert('<%= messages.error %>');
+  </script>
+<% } %>
+
+<form action="/booking/submitMeetingRoomCumAppetizers" method="POST">
+    <!-- Meeting Room Form -->
+    <div>
+        <label for="id">Employee ID:</label>
+        <input type="number" id="id" name="id" required>
+    </div>
+    <div>
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate">
+        <label for="startTime">Time:</label>
+        <input type="time" id="startTime" name="startTime">
+    </div>
+    <div>
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate">
+        <label for="endTime">Time:</label>
+        <input type="time" id="endTime" name="endTime">
+    </div>
+    <div>
+        <label for="preferredFloor">Preferred Floor:</label>
+        <input type="text" id="preferredFloor" name="preferredFloor">
+    </div>
+    <div>
+        <label for="preferredRoom">Preferred Room:</label>
+        <input type="text" id="preferredRoom" name="preferredRoom">
+    </div>
+
+    <!-- Appetizers Form -->
+    <hr>
+    <h2>Refreshments Form</h2>
+    <div class="form-group">
+        <label for="snacks">Light Tea</label>
+        <div id="snacks-list" class="input-group">
+            <!-- Snacks items will be added here dynamically -->
+        </div>
+        <div class="add-button-container fixed-position">
+            <button type="button" class="add-snack fixed-button">+ Add Light Tea</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="deliveryTime">Delivery Time for light tea</label>
+        <input type="time" id="deliveryTime" name="appetizerDetails[deliveryTime]">
+    </div>
+    <div class="form-group">
+        <label for="high-tea">High Tea</label>
+        <div id="high-tea-list" class="input-group">
+            <!-- High tea items will be added here dynamically -->
+        </div>
+        <div class="add-button-container fixed-position">
+            <button type="button" class="add-high-tea fixed-button">+ Add High Tea</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="deliveryTime">Delivery Time for high tea</label>
+        <input type="time" id="deliveryTime" name="appetizerDetails[deliveryTime]">
+    </div>
+    <div class="form-group">
+        <label for="lunch">Lunch</label>
+        <div id="lunch-list" class="input-group">
+            <!-- Lunch items will be added here dynamically -->
+        </div>
+        <div class="add-button-container fixed-position">
+            <button type="button" class="add-lunch fixed-button">+ Add Lunch</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="deliveryTime">Delivery Time for lunch</label>
+        <input type="time" id="deliveryTime" name="appetizerDetails[deliveryTime]">
+    </div>
+    <input type="submit" value="Submit" class="glassmorphism-button shift-right">
+</form>
+
+<script src="/js/script.js"></script>

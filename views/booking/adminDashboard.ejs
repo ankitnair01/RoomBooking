@@ -1,0 +1,71 @@
+<!-- views/booking/adminDashboard.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="https://ongcindia.com/"><img src="/images/ongc.png" alt="Logo"></a>
+    </div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/admin/logout">Logout</a></li>
+    </ul>
+  </nav>
+  <h2>Admin Dashboard</h2>
+
+  <% if (messages && messages.length > 0) { %>
+    <% messages.forEach(function(message) { %>
+      <div class="flash-message"><%= message %></div>
+    <% }); %>
+  <% } %>
+
+  <h3>Room Booking Requests</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Employee ID</th>
+        <th>Start Date</th>
+        <th>Start Time</th>
+        <th>End Date</th>
+        <th>End Time</th>
+        <th>Meeting Room</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% bookings.forEach(function(booking) { %>
+        <tr>
+          <td><%= booking.id %></td>
+          <td><%= booking.employeeid %></td>
+          <td><%= booking.startDate %></td>
+          <td><%= booking.startTime %></td>
+          <td><%= booking.endDate %></td>
+          <td><%= booking.endTime %></td>
+          <td><%= booking.meetingRoom %></td>
+          <td>
+            <form action="/admin/updateBooking" method="POST" style="display:inline-block;">
+              <input type="hidden" name="id" value="<%= booking.id %>">
+              <input type="hidden" name="action" value="accept">
+              <input type="text" name="roomNumber" placeholder="Room Number" required>
+              <input type="time" name="time" required>
+              <button type="submit">Accept</button>
+            </form>
+            <form action="/admin/updateBooking" method="POST" style="display:inline-block;">
+              <input type="hidden" name="id" value="<%= booking.id %>">
+              <input type="hidden" name="action" value="reject">
+              <button type="submit">Reject</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

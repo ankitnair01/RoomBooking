@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="/images/ongc.png" type="image/png">
+  <title>Meeting Room Booking</title>
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="https://ongcindia.com/"><img src="/images/ongc.png" alt="Logo"></a>
+    </div>
+    <ul>
+      <li><a href="#" onclick="showForm('meetingRoomCumAppetizers')">Meeting Room cum Appetizers</a></li>
+      <li><a href="#" onclick="showForm('meetingRoom')">Meeting Room</a></li>
+      <li><a href="#" onclick="showForm('appetizers')">Refreshments</a></li>
+      <li><a href="/admin">Admin Login</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <div class="buttons">
+      
+      <button id="meetingRoomCumAppetizersBookingBtn" onclick="showForm('meetingRoomCumAppetizers')">Meeting Room cum Refreshments</button>
+      <button id="meetingRoomBookingBtn" onclick="showForm('meetingRoom')">Meeting Room Booking</button>
+      <button id="appetizersBookingBtn" onclick="showForm('appetizers')">Refreshments Booking</button>
+    </div>
+    <div id="formContainer">
+      <h2>Choose your form from above three....</h2> 
+      <!-- Forms will be dynamically loaded here -->
+    </div>
+  </div>
+
+  <script src="/js/script.js"></script>
+
+</body>
+</html>

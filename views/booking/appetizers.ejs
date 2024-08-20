@@ -1,0 +1,66 @@
+<!-- views/booking/appetizers.ejs -->
+<h2>Refreshments Booking</h2>
+
+<% if (messages.success) { %>
+  <p class="success"><%= messages.success %></p>
+  <script>
+    alert('<%= messages.success %>');
+  </script>
+<% } %>
+<% if (messages.error) { %>
+  <p class="error"><%= messages.error %></p>
+  <script>
+    alert('<%= messages.error %>');
+  </script>
+<% } %>
+
+<form action="/booking/submitAppetizers" method="POST">
+    <div class="form-group">
+        <div>
+            <label for="id">Employee ID:</label>
+            <input type="number" id="id" name="id" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="snacks">Light Tea</label>
+        <div id="snacks-list" class="input-group">
+            <!-- Snacks items will be added here dynamically -->
+        </div>
+        <div class="add-button-container fixed-position">
+            <button type="button" class="add-snack fixed-button">+ Add Light Tea</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="deliveryTime">Delivery Time for light tea</label>
+        <input type="time" id="deliveryTime" name="appetizerDetails[deliveryTime]">
+    </div>
+    <div class="form-group">
+        <label for="high-tea">High Tea</label>
+        <div id="high-tea-list" class="input-group">
+            <!-- High tea items will be added here dynamically -->
+        </div>
+        <div class="add-button-container fixed-position">
+            <button type="button" class="add-high-tea fixed-button">+ Add High Tea</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="deliveryTime">Delivery Time for high tea</label>
+        <input type="time" id="deliveryTime" name="appetizerDetails[deliveryTime]">
+    </div>
+    <div class="form-group">
+        <label for="lunch">Lunch</label>
+        <div id="lunch-list" class="input-group">
+            <!-- Lunch items will be added here dynamically -->
+        </div>
+        <div class="add-button-container fixed-position">
+            <button type="button" class="add-lunch fixed-button">+ Add Lunch</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="deliveryTime">Delivery Time for lunch</label>
+        <input type="time" id="deliveryTime" name="appetizerDetails[deliveryTime]">
+    </div>
+    <input type="submit" value="Submit" class="glassmorphism-button shift-right">
+</form>
+
+<script src="/js/script.js"></script>
